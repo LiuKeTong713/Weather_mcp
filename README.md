@@ -257,3 +257,34 @@ WEATHER_CONFIG = {
 ---
 
 **注意**: 请确保妥善保管你的 API 密钥，不要将其提交到版本控制系统中。
+
+## 🔧 标准服务配置
+
+```json
+{
+  "mcpServers": {
+    "weather_mcp": {
+      "args": [
+        "server.py"
+      ],
+      "command": "python",
+      "env": {
+        "OPENAI_API_KEY": "your_openai_api_key_here",
+        "BASE_URL": "your_model_base_url",
+        "MODEL": "YOUR_Model_Name",
+        "WEATHER_API_KEY": "your_openweather_api_key_here"
+      }
+    }
+  }
+}
+```
+
+### 字段说明
+- `"args"`：传递给 MCP 服务器的参数（如 `server.py`）。
+- `"command"`：启动命令（Python 项目用 `"python"`）。
+- `"env"`：自动提取的环境变量，**请将 `your_openai_api_key_here` 和 `your_openweather_api_key_here` 替换为你自己的密钥**。
+
+---
+
+如需多个服务配置，可以用 JSON 数组格式填写多个 `mcpServers`。  
+如需进一步定制或有其他字段需求，请告知！
